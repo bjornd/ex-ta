@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class Cart extends Component {
   render() {
@@ -27,4 +28,8 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+export default connect(
+  ({cart}) => ({
+    items: cart.get('list').map( id => cart.getIn(['entries', id]) ).toJS(),
+  })
+)(Cart);
