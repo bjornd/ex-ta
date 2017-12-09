@@ -39,6 +39,16 @@ export function loadCart() {
   }
 }
 
+export function saveCart() {
+  return (dispatch, getState) => {
+    const cart = getState().cart
+    return fetch('cart.json', {
+      method: 'PUT',
+      body: JSON.stringify(cart.get('list').map( id => cart.getIn(['entries', id]) ).toJS()),
+    })
+  }
+}
+
 export function loadProducts() {
   return (dispatch) => fetch('products.json')
     .then( response => response.json() )
