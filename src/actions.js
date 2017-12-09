@@ -45,7 +45,7 @@ export function loadProducts() {
     products: [
       { id: 1, name: 'Apples', price: 10 },
       { id: 2, name: 'Oranges', price: 8 },
-      { id: 3, name: 'Pears', price: 8 },
+      { id: 3, name: 'Pears', price: 6 },
     ]
   }
 }
