@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { updateAmountInCart, removeFromCart } from './actions'
 
 class Cart extends Component {
   render() {
@@ -18,6 +19,11 @@ class Cart extends Component {
                     <td>{item.name}</td>
                     <td>${item.price}</td>
                     <td>{item.amount}</td>
+                    <td>
+                      <button disabled={item.amount === 1} onClick={this.onDecrementClick.bind(this, item)}>-</button>
+                      <button onClick={this.onIncrementClick.bind(this, item)}>+</button>
+                      <button onClick={this.onRemoveClick.bind(this, item)}>Remove</button>
+                    </td>
                   </tr>
                 )
               }
@@ -25,6 +31,18 @@ class Cart extends Component {
           </table>
         : <div>Empty cart</div>
     );
+  }
+
+  onIncrementClick(item) {
+    this.props.dispatch( updateAmountInCart( item.productId, item.amount + 1 ) )
+  }
+
+  onDecrementClick(item) {
+    this.props.dispatch( updateAmountInCart( item.productId, item.amount - 1 ) )
+  }
+
+  onRemoveClick(item) {
+    this.props.dispatch( removeFromCart( item.productId) )
   }
 }
 
