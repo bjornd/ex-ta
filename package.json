@@ -2,7 +2,7 @@
   "name": "ex-ta",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bjornd.github.io",
+  "homepage": "https://bjornd.github.io/ex-ta",
   "dependencies": {
     "gh-pages": "^1.1.0",
     "react": "^16.2.0",
