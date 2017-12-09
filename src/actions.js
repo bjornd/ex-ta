@@ -40,12 +40,7 @@ export function loadCart() {
 }
 
 export function loadProducts() {
-  return {
-    type: 'PRODUCTS_LOADED',
-    products: [
-      { id: 1, name: 'Apples', price: 10 },
-      { id: 2, name: 'Oranges', price: 8 },
-      { id: 3, name: 'Pears', price: 6 },
-    ]
-  }
+  return (dispatch) => fetch('products.json')
+    .then( response => response.json() )
+    .then( products => dispatch( { type: 'PRODUCTS_LOADED', products } ) )
 }
