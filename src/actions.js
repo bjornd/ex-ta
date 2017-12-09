@@ -32,6 +32,13 @@ export function updateAmountInCart(productId, amount) {
   }
 }
 
+export function loadCart() {
+  return {
+    type: 'CART_LOADED',
+    cart: JSON.parse(localStorage.getItem('cart')),
+  }
+}
+
 export function loadProducts() {
   return {
     type: 'PRODUCTS_LOADED',

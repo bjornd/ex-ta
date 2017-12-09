@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { updateAmountInCart, removeFromCart } from './actions'
+import { updateAmountInCart, removeFromCart, loadCart } from './actions'
 
 class Cart extends Component {
+  componentDidMount() {
+    this.props.dispatch( loadCart() )
+  }
+
   render() {
     return (
       this.props.items.length
